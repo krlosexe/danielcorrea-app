@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "566574259909",
+    "project_id": "daniel-correa-8605c",
+    "storage_bucket": "daniel-correa-8605c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566574259909:android:0334195a65a83bffdc1aac",
+        "android_client_info": {
+          "package_name": "com.danielcorrea"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "566574259909-tldud1ugsecfs83jna3qk2g5i29isaid.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwUhw13-dguyW4MdzMQDSmdz2HhL33w84"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "566574259909-tldud1ugsecfs83jna3qk2g5i29isaid.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
