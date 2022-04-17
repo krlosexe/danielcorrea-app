@@ -243,6 +243,13 @@ function MyCitas(props) {
                   Citas.revisiones.map((i, key) => {
                     return (
                       <View style={styles.wrap}>
+
+                        <View style={styles.row}>
+                          <Text style={styles.text1}>estatus: </Text>
+                          <Text style={styles.text2}>{i.status}</Text>
+                        </View>
+
+
                         <View style={styles.row}>
                           <Text style={styles.text1}>cirugia: </Text>
                           <Text style={styles.text2}>{i.cirugia}</Text>
