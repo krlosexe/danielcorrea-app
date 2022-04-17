@@ -366,12 +366,17 @@ async function AddCita(a, b, c) {
   console.log(NewRegister)
   await axios.post(base_url(Api, `request/appointment`), NewRegister).then(function (response) {
     console.log("proceso exitoso")
+    return true
   })
     .catch(function (error) {
       //console.log("error")
       //console.log(error.response.data)
     })
     .then(function () { });
+
+    return true
+
+    
 }
 
 

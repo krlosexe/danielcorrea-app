@@ -188,6 +188,8 @@ function NewCita(props) {
       res = await AddCita(user, procedure.id, sede.id)
     }
 
+    console.log(res, "RESS")
+
     if (res) {
       setSendSuccess(true)
     }
