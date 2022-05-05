@@ -16,6 +16,7 @@ function RefferedDetailScreen(props) {
   const [formInfo, setFormInfo] = React.useState({
     numero_cuenta: '',
     tipo_cuenta: '',
+    tipo_documento: '',
     documento: '',
     nombre_banco: '',
   })
@@ -58,7 +59,8 @@ function RefferedDetailScreen(props) {
       numero_cuenta : formInfo.numero_cuenta,
       tipo_cuenta   : formInfo.tipo_cuenta,
       documento     : formInfo.documento,
-      nombre_banco  : formInfo.nombre_banco
+      nombre_banco  : formInfo.nombre_banco,
+      tipo_documento  : formInfo.tipo_documento
     }
 
     console.log(base_url(Api, `request/pay`))
@@ -164,12 +166,21 @@ function RefferedDetailScreen(props) {
                     onChangeText={text => onChangeText(text, 'tipo_cuenta')}
                     value={formInfo.tipo_cuenta} />
 
+                  <TextInput
+                    style={styles.TextInput}
+                    placeholder="Tipo de Documento"
+                    onChangeText={text => onChangeText(text, 'tipo_documento')}
+                    value={formInfo.tipo_documento} />
+
 
                 <TextInput
                     style={styles.TextInput}
                     placeholder="Numero de documento"
                     onChangeText={text => onChangeText(text, 'documento')}
                     value={formInfo.documento} />
+
+
+                
 
                 <TextInput
                     style={styles.TextInput}

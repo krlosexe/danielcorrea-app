@@ -134,8 +134,8 @@ android {
         applicationId "com.danielcorrea"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 17
-        versionName "2.1.7"
+        versionCode 20
+        versionName "2.1.20"
     }
     splits {
         abi {

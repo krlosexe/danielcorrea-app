@@ -181,12 +181,16 @@ function NewCita(props) {
         "fecha": date,
         "time": hour
       }
-      await axios.post(base_url(Api, `request/query/revision`), myObj).then(function (response) { res = response.data })
+      axios.post(base_url(Api, `request/query/revision`), myObj).then(function (response) {
+        res = response.data 
+      })
         .catch(function (error) { console.log(error.response.data) })
     }
     else {
       res = await AddCita(user, procedure.id, sede.id)
     }
+
+    setSendSuccess(true)
 
     console.log(res, "RESS")
 
