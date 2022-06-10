@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Modal, StatusBar, SafeAreaView, Dimensions, ActivityIndicator, View, Text, Image, TouchableOpacity, StyleSheet, TextInput, ShadowPropTypesIOS } from 'react-native'
+import { Modal, StatusBar, SafeAreaView, Dimensions, ActivityIndicator, View, Text, Image, TouchableOpacity, StyleSheet, ShadowPropTypesIOS, Alert } from 'react-native'
 import { color_fifth, color_grey_light } from '../../styles/Colors';
 import Toast from 'react-native-simple-toast';
 import _, { cloneWith } from 'lodash'
@@ -331,7 +331,9 @@ const DAY = (props) => {
     let res = false
     if (props.date !== null) {
       const select = props.date.split("-")[2]
-      if (day === select) { res = true }
+      
+      if (day === select) {console.log(select) 
+         res = true }
     }
     return res
   }
@@ -358,7 +360,7 @@ const DAY = (props) => {
     const D = zfill(toDay.getDate(), 2)
     const today = Y + "-" + M + "-" + D
     if (props.minDateNow === true) {
-      if (day >= today) {
+      if (day > today) {
         props.getDay(day)
       }
       else {

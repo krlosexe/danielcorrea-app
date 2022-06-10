@@ -1,5 +1,5 @@
-import React, { useEffect, useContext, useState } from 'react';
-import { ActivityIndicator, SafeAreaView, StatusBar, View, Text, TouchableOpacity, ScrollView, StyleSheet, Modal, ImageBackground } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, SafeAreaView, StatusBar, View, Text, TouchableOpacity, ScrollView, StyleSheet, Modal, ImageBackground, Alert } from 'react-native';
 import Menu from '../components/Menu';
 import { Icon } from 'react-native-eva-icons';
 import Head from '../components/Head';
@@ -8,6 +8,25 @@ import { primaryColor, colorBack, colorLight } from '../Colors.js'
 import Calendary from '../components/Calendary'
 import { Api, base_url } from '../Env'
 import axios from 'axios'
+
+function zfill(number, width) {
+  var numberOutput = Math.abs(number);
+  var length = number.toString().length;
+  var zero = "0";
+  if (width <= length) {
+    if (number < 0) {
+      return ("-" + numberOutput.toString());
+    } else {
+      return numberOutput.toString();
+    }
+  } else {
+    if (number < 0) {
+      return ("-" + (zero.repeat(width - length)) + numberOutput.toString());
+    } else {
+      return ((zero.repeat(width - length)) + numberOutput.toString());
+    }
+  }
+}
 
 function NewCita(props) {
   const { navigation } = props
@@ -79,19 +98,37 @@ function NewCita(props) {
       setavailableButton(true)
     }
     if (date !== false) {
-      const horasdisponibles = async () => {
-        setloadHours(true)
+      console.log("this is from date " + date)
+      const dia = date.split("-")[2]
+      console.log("this is with split " + dia)
 
-        console.log(base_url(Api, `get/availability/revision/${date}/${sede.id_clinic}`))
-        await axios.get(base_url(Api, `get/availability/revision/${date}/${sede.id_clinic}`)).then(function (response) {
-          setlisthours(response.data)
-        }).then(setgettinghour(true))
-          .catch(function (error) { console.log(error) })
 
-        setloadHours(false)
+      const toDay = new Date();
+      const Y = toDay.getFullYear()
+      const M = zfill(toDay.getMonth() + 1, 2)
+      const D = zfill(toDay.getDate(), 1)
+      const today = Y + "-" + M + "-" + D
+      console.log("this is today " + D)
+
+      if (dia == D) {
+        Alert.alert("No puedes seleccionar una cita para hoy")
+        console.log("Son la misma fecha");
       }
-      horasdisponibles()
-    }
+      else{
+        const horasdisponibles = async () => {
+          setloadHours(true)
+  
+          console.log(base_url(Api, `get/availability/revision/${date}/${sede.id_clinic}`))
+          await axios.get(base_url(Api, `get/availability/revision/${date}/${sede.id_clinic}`)).then(function (response) {
+            setlisthours(response.data)
+          }).then(setgettinghour(true))
+            .catch(function (error) { console.log(error) })
+  
+          setloadHours(false)
+        }
+        horasdisponibles()
+      }
+      }
   }, [itsSelectingHour, sede, date]);
 
   useEffect(() => {
@@ -182,7 +219,7 @@ function NewCita(props) {
         "time": hour
       }
       axios.post(base_url(Api, `request/query/revision`), myObj).then(function (response) {
-        res = response.data 
+        res = response.data
       })
         .catch(function (error) { console.log(error.response.data) })
     }
