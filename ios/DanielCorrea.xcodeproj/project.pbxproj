@@ -497,8 +497,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = DanielCorrea/DanielCorrea.entitlements;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3HB778KC8U;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = XT962J32K7;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = DanielCorrea/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -506,12 +506,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.DrDanielCorrea2.org;
+				PRODUCT_BUNDLE_IDENTIFIER = DrDanielCorrea2.com;
 				PRODUCT_NAME = DanielCorrea;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -526,20 +527,21 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = DanielCorrea/DanielCorrea.entitlements;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3HB778KC8U;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = XT962J32K7;
 				INFOPLIST_FILE = DanielCorrea/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.DrDanielCorrea2.org;
+				PRODUCT_BUNDLE_IDENTIFIER = DrDanielCorrea2.com;
 				PRODUCT_NAME = DanielCorrea;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
