@@ -98,37 +98,47 @@ function NewCita(props) {
       setavailableButton(true)
     }
     if (date !== false) {
-      console.log("this is from date " + date)
       const dia = date.split("-")[2]
       console.log("this is with split " + dia)
-
-
       const toDay = new Date();
+      const finde = new Date(date).getDay();
+      if (finde == 5) {
+        console.log("sabado")
+      }
+      if (finde == 6) {
+        console.log("domingo")
+      }
+      console.log("este es el dia solicitado" + finde)
       const Y = toDay.getFullYear()
       const M = zfill(toDay.getMonth() + 1, 2)
       const D = zfill(toDay.getDate(), 1)
       const today = Y + "-" + M + "-" + D
       console.log("this is today " + D)
-
-      if (dia == D) {
-        Alert.alert("No puedes seleccionar una cita para hoy")
-        console.log("Son la misma fecha");
+      //  [0,       1,        2,        3,      4,      5,      6]
+      //  [lunes, martes, miercoles, jueves, viernes, sabado, domingo]
+      //const numeroDia = new Date(toDay).getDay();             
+      //console.log("EL NUMERO DEL DIA ES:   " + numeroDia)
+      if(finde === 5 || finde === 6){
+        Alert.alert("Lo sentimos", "No se pueden agendar citas en los fines de semana")
+      }else if (dia == D) {
+        Alert.alert("Lo sentimos", "Debes generar una citas con una fecha posterior a hoy")
+        //console.log("Son la misma fecha");
       }
-      else{
+      else {
         const horasdisponibles = async () => {
           setloadHours(true)
-  
+
           console.log(base_url(Api, `get/availability/revision/${date}/${sede.id_clinic}`))
           await axios.get(base_url(Api, `get/availability/revision/${date}/${sede.id_clinic}`)).then(function (response) {
             setlisthours(response.data)
           }).then(setgettinghour(true))
             .catch(function (error) { console.log(error) })
-  
+
           setloadHours(false)
         }
         horasdisponibles()
       }
-      }
+    }
   }, [itsSelectingHour, sede, date]);
 
   useEffect(() => {

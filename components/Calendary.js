@@ -364,7 +364,7 @@ const DAY = (props) => {
         props.getDay(day)
       }
       else {
-        Toast.show(`minimum day ${D}`)
+        Toast.show(`Debe seleccionar una fecha mayor a la actual`)
       }
     }
     else {
